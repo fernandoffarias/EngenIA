@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EngenIA | Reforço Universitário</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <main class="app">
+    <aside class="sidebar">
+      <div class="logo">
+        <img
+        src="{{ url_for('static', filename='imagens/principallogo.png') }}"
+        alt="Logo EngenIA"
+        class="logo-img"
+        >
+        <div class="logo-text">
+         <h1>EngenIA</h1>
+         <span class="divider">|</span>
+         <p>Reforço universitário</p>
+        </div>
+       </div>
+      <button class="new-chat" onclick="newChat()">+ Nova conversa</button>
+
+      <div class="info-card">
+        <h2>📚 Matérias</h2>
+
+        <button class="subject active" onclick="setSubject(this, 'Geral')">🎓 Geral</button>
+        <button class="subject" onclick="setSubject(this, 'Programação')">💻 Programação</button>
+        <button class="subject" onclick="setSubject(this, 'Banco de Dados')">🗄 Banco de Dados</button>
+        <button class="subject" onclick="setSubject(this, 'Redes de Computadores')">🌐 Redes</button>
+        <button class="subject" onclick="setSubject(this, 'Engenharia de Software')">📐 Eng. Software</button>
+        <button class="subject" onclick="setSubject(this, 'Segurança da Informação')">🔒 Segurança</button>
+      </div>
+
+      <div class="suggestions">
+        <h2>⚡ Perguntas rápidas</h2>
+        <button onclick="sendSuggestion('Explique Programação Orientada a Objetos para iniciantes')">POO</button>
+        <button onclick="sendSuggestion('O que é arquitetura web?')">Arquitetura Web</button>
+        <button onclick="sendSuggestion('Explique banco de dados de forma simples')">Banco de Dados</button>
+        <button onclick="sendSuggestion('Como funciona uma API REST?')">API REST</button>
+      </div>
+    </aside>
+
+    <section class="chat-area">
+      <header class="chat-header">
+        <div>
+          <h2>Seu tutor inteligente em Engenharia de Software</h2>
+          <p>Área selecionada: <strong id="current-subject">Geral</strong></p>
+        </div>
+      </header>
+
+      <div id="chat-box" class="chat-box">
+        <div class="message bot">
+          <div class="avatar">🤖</div>
+          <div class="content">
+            <div class="meta">EngenIA • agora</div>
+            <div class="bubble">
+              Olá! Eu sou a <strong>EngenIA</strong>, sua IA de reforço universitário.
+              Escolha uma matéria na lateral ou digite sua dúvida.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form id="chat-form" class="chat-form">
+        <input 
+          type="text" 
+          id="message-input" 
+          placeholder="Digite sua dúvida aqui..." 
+          autocomplete="off"
+          required
+        >
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
